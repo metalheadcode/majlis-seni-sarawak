@@ -1,14 +1,12 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import HeroLayoutOne from "../components/Sections/HeroLayoutOne"
-import SectionTwo from "../components/Sections/SectionTwo"
+import Homescreen from "../screens/Homescreen"
 
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
-    <HeroLayoutOne />
-    <SectionTwo />
+    <Homescreen />
   </Layout>
 )
 
