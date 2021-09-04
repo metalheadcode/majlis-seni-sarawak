@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react"
-import styled from "styled-components"
-import HeroLayoutOne from "../components/Sections/HeroLayoutOne"
-import HeroLayoutTwo from "../components/Sections/HeroLayoutTwo"
-import SectionTwo from "../components/Sections/SectionTwo"
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import HeroLayoutOne from "../components/Sections/HeroLayoutOne";
+import HeroLayoutTwo from "../components/Sections/HeroLayoutTwo";
+import SectionTwo from "../components/Sections/SectionTwo";
 
 const Homescreen = () => {
-  const [scrollY, setScrollY] = useState()
+  const [scrollY, setScrollY] = useState();
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-  const handleScroll = () => setScrollY(window.pageYOffset)
+  const handleScroll = () => setScrollY(window.pageYOffset);
   return (
     <div>
       <WrapperGlobal>
@@ -23,12 +23,12 @@ const Homescreen = () => {
         <SectionTwo />
       </WrapperGlobal>
     </div>
-  )
-}
+  );
+};
 
-export default Homescreen
+export default Homescreen;
 
 const WrapperGlobal = styled.div`
   width: 100vw;
   overflow: hidden;
-`
+`;

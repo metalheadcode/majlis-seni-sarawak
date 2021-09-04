@@ -1,14 +1,14 @@
-import * as React from "react"
-import MenuButton from "./Menu/MenuButton"
-import styled from "styled-components"
+import * as React from "react";
+import MenuButton from "./Menu/MenuButton";
+import styled from "styled-components";
 
 const Header = () => (
   <Navbar>
     <MenuButton />
   </Navbar>
-)
+);
 
-export default Header
+export default Header;
 
 const Navbar = styled.header`
   position: fixed;
@@ -17,4 +17,4 @@ const Navbar = styled.header`
   right: 0;
   background-color: transparent;
   z-index: 20;
-`
+`;

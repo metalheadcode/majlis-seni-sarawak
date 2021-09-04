@@ -5,10 +5,10 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-import PropTypes from "prop-types"
-import Header from "./header"
-import "./layout.css"
+import * as React from "react";
+import PropTypes from "prop-types";
+import Header from "./header";
+import "./layout.css";
 
 const Layout = ({ children }) => {
   return (
@@ -23,11 +23,11 @@ const Layout = ({ children }) => {
         This is footer
       </footer>
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
