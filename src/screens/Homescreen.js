@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Menu from "../components/Menu/Menu";
 import HeroLayoutOne from "../components/Sections/HeroLayoutOne";
 import HeroLayoutTwo from "../components/Sections/HeroLayoutTwo";
 import SectionTwo from "../components/Sections/SectionTwo";
@@ -18,6 +19,7 @@ const Homescreen = () => {
   return (
     <div>
       <WrapperGlobal>
+        <Menu />
         <HeroLayoutOne scrollY={scrollY} />
         <HeroLayoutTwo scrollY={scrollY} />
         <SectionTwo />
