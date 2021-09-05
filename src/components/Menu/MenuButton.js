@@ -1,9 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
+import Menu from "./Menu";
 
 const MenuButton = () => {
   const menu = useRef(null);
+  const [state, setState] = useState({
+    initial: false,
+    clicked: null,
+    button: "Menu",
+  });
+
   useEffect(() => {
     gsap.from(menu.current, {
       opacity: 0,
@@ -13,19 +20,32 @@ const MenuButton = () => {
   }, []);
 
   const handleMenuClick = () => {
-    //
+    if (state.initial === false) {
+      setState({ initial: null, clicked: true, button: "Close" });
+    } else if (state.clicked === true) {
+      // dah pernah tekan, then terbukak
+      setState({ initial: null, clicked: false, button: "Menu" });
+    } else if (state.clicked === false) {
+      // dah pernah tekan, tertutup
+      setState({ initial: null, clicked: true, button: "Close" });
+    }
   };
+
+  console.log("Menu state", state);
   return (
-    <MenuBtn ref={menu} onClick={handleMenuClick}>
-      Menu
-    </MenuBtn>
+    <>
+      <MenuBtn ref={menu} onClick={handleMenuClick}>
+        {state.button}
+      </MenuBtn>
+      <Menu state={state} />
+    </>
   );
 };
 
 export default MenuButton;
 
 const MenuBtn = styled.button`
-  z-index: 100;
+  z-index: 101;
   padding: 20px 12px;
   border-radius: 50%;
   border: none;
