@@ -103,14 +103,6 @@ const HeroLayoutOne = ({ scrollY }) => {
         >
           {/* <StaticImage src="../../images/#_longBatik.png" alt="batik" /> */}
         </MovingBatik1>
-        <MovingBatik2
-          style={{
-            right: `-${scrollY * 0.5}px`,
-            backgroundImage: `url(${batikImage1})`,
-          }}
-        >
-          {/* <StaticImage src="../../images/#_longBatik.png" alt="batik" /> */}
-        </MovingBatik2>
       </Wrapper>
     </Section>
   );
@@ -140,18 +132,13 @@ const Wrapper = styled.div`
 
 const MovingBatik1 = styled.div`
   position: absolute;
-  bottom: -75px;
+  bottom: -32.5px;
   left: 0;
   height: 75px;
   width: 200%;
+  z-index: 2;
 `;
-const MovingBatik2 = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 75px;
-  width: 200%;
-`;
+
 const BigCircleLeft = styled.div`
   width: 630px;
   height: 630px;
