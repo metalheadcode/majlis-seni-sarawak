@@ -10,7 +10,6 @@ iframe,
 p,
 blockquote,
 pre,
-a,
 abbr,
 acronym,
 address,
@@ -127,4 +126,8 @@ h4,
 h5,
 h6 {
   font-family: "Titania";
+}
+
+a {
+  text-decoration: none;
 }
