@@ -5,9 +5,9 @@ import HeroLayoutOne from "../components/Sections/HeroLayoutOne";
 import HeroLayoutTwo from "../components/Sections/HeroLayoutTwo";
 import SectionTwo from "../components/Sections/SectionTwo";
 
-const Homescreen = () => {
+const Homescreen = ({ batikOne }) => {
   const [scrollY, setScrollY] = useState();
-
+  console.log("Homescreen", batikOne);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -22,7 +22,7 @@ const Homescreen = () => {
   return (
     <div>
       <WrapperGlobal>
-        <HeroLayoutOne scrollY={scrollY} />
+        <HeroLayoutOne scrollY={scrollY} batikOne={batikOne} />
         <BlogPosts />
         <SectionTwo scrollY={scrollY} />
         <HeroLayoutTwo scrollY={scrollY} />
