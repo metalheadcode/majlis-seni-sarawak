@@ -1,20 +1,22 @@
 import { graphql } from "gatsby";
 import React from "react";
-import MorePost from "../../components/Posts/MorePost";
+import Layout from "../../components/layout";
 import PostBody from "../../components/Posts/PostBody";
-import Site from "../../components/Posts/Site";
-import styled from "styled-components";
+import PostHeader from "../../components/Posts/PostHeader";
+import MorePost from "../../components/Posts/MorePost";
 
-export default function Post({ data: { site, post, morePosts } }) {
-  console.log("Site", site);
-  console.log("Post", post);
-  console.log("MorePosts", morePosts);
+export default function Post({ data: { post, morePosts } }) {
   return (
-    <PostPage>
-      <Site site={site} />
+    <Layout>
+      <PostHeader
+        title={post.title}
+        author={post.author}
+        coverImage={post.coverImage}
+        date={post.date}
+      />
       <PostBody post={post} />
-      <MorePost morePosts={morePosts} />
-    </PostPage>
+      <MorePost morePosts={morePosts} title="More Posts" />
+    </Layout>
   );
 }
 
@@ -31,6 +33,7 @@ export const query = graphql`
       }
       title
       slug
+
       content {
         value
         blocks {
@@ -70,11 +73,7 @@ export const query = graphql`
         }
       }
     }
-    morePosts: allDatoCmsPost(
-      sort: { fields: date, order: DESC }
-      limit: 2
-      filter: { id: { ne: $id } }
-    ) {
+    morePosts: allDatoCmsPost(sort: { fields: date, order: DESC }, limit: 4) {
       nodes {
         title
         slug
@@ -102,34 +101,5 @@ export const query = graphql`
         }
       }
     }
-  }
-`;
-
-const PostPage = styled.div`
-  // Main
-  padding-left: 20px;
-  padding-right: 20px;
-
-  p {
-    font-size: 16px;
-    font-family: san-serif;
-  }
-
-  /* ul & ol  */
-  ol ol,
-  ul ul,
-  ul ol,
-  ol ul {
-    margin: 0.5em 0 1em;
-  }
-  ul {
-    list-style: disc;
-  }
-  ol {
-    list-style: decimal;
-  }
-  ul,
-  ol {
-    max-width: 100%;
   }
 `;
