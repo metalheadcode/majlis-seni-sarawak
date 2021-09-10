@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { StaticImage } from "gatsby-plugin-image";
 import batikImage1 from "../../images/batik1.webp";
 
-const HeroLayoutOne = ({ scrollY, batikOne }) => {
+const HeroLayoutOne = ({ scrollY, data }) => {
   const logo = useRef(null);
   const button = useRef(null);
   const bushLeft = useRef(null);
@@ -27,8 +27,6 @@ const HeroLayoutOne = ({ scrollY, batikOne }) => {
     gsapTo(bigCircleLeft.current, 400, 2);
     gsapTo(bigCircleRight.current, -400, 1.9);
   }, []);
-
-  console.log("Data", batikOne);
 
   const gsapTo = (node1, xPosition, delay) => {
     gsap.to(node1, {
