@@ -2,42 +2,45 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import CSSPlugin from "gsap/CSSPlugin";
 
 const Menu = ({ state }) => {
   const menuWrapper = useRef(null);
+  console.log(state);
 
   useEffect(() => {
+    gsap.registerPlugin(CSSPlugin);
     if (state.clicked === false) {
+      // close menu
       gsap.to(menuWrapper.current, {
         height: 0,
         duration: 1,
         ease: "Power3.easeIn",
       });
       gsap.to(menuWrapper.current, {
-        duration: 1,
-        css: {
-          display: "none",
-        },
+        delay: 1,
+        css: { display: "none" },
       });
-    } else if (state.initial === null && state.clicked === true) {
+    } else if (
+      // open menu
+      state.initial === true ||
+      (state.initial === null && state.clicked === true)
+    ) {
+      // set menu to display grid
       gsap.to(menuWrapper.current, {
         duration: 0,
-        css: {
-          display: "grid",
-        },
+        css: { display: grid },
       });
-      console.log("Animation 1");
-      gsap.from(menuWrapper.current, {
-        height: 0,
-        duration: 1,
-        ease: "Power3.easeOut",
-      });
-      console.log("Animation 2");
+      // allow menu to have height of 100%
+      gsap.to(menuWrapper.current, {});
     }
   }, [state]);
 
   return (
     <MenuWrapper ref={menuWrapper}>
+      <MenuItems>
+        <Link to={"/"}>Home</Link>
+      </MenuItems>
       <MenuItems>
         <Link to={"/artist"}>Sarawak Artist</Link>
       </MenuItems>
@@ -64,15 +67,17 @@ const MenuWrapper = styled.div`
   background-color: #d66a50;
   z-index: 100;
   display: none;
+  overflow: hidden;
 `;
 
 const MenuItems = styled.div`
-  padding: 30px;
+  padding: 60px 20px;
   text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
 
   a {
     font-size: 60px;
+    font-weight: bold;
     color: white;
   }
 
