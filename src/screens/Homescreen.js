@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { BlogPosts } from "../components/Sections/BlogPosts";
+import MorePost from "../components/Posts/MorePost";
 import HeroLayoutOne from "../components/Sections/HeroLayoutOne";
 import HeroLayoutTwo from "../components/Sections/HeroLayoutTwo";
 import SectionTwo from "../components/Sections/SectionTwo";
 
-const Homescreen = ({ batikOne }) => {
+const Homescreen = ({ data }) => {
   const [scrollY, setScrollY] = useState();
-  console.log("Homescreen", batikOne);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -22,8 +22,8 @@ const Homescreen = ({ batikOne }) => {
   return (
     <div>
       <WrapperGlobal>
-        <HeroLayoutOne scrollY={scrollY} batikOne={batikOne} />
-        <BlogPosts />
+        <HeroLayoutOne scrollY={scrollY} data={data} />
+        <MorePost morePosts={data.morePosts} title="More Posts" />;
         <SectionTwo scrollY={scrollY} />
         <HeroLayoutTwo scrollY={scrollY} />
       </WrapperGlobal>
