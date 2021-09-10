@@ -1,10 +1,12 @@
 import React from "react";
 import { StructuredText } from "react-datocms";
 import Img from "gatsby-image";
+import styled from "styled-components";
 
 const PostBody = ({ post }) => {
   return (
-    <div style={{ width: "100%" }}>
+    <Wrapper>
+      <DateFormat>{new Date(post.date).toDateString()}</DateFormat>
       <StructuredText
         data={post.content}
         renderBlock={({ record }) => {
@@ -14,8 +16,19 @@ const PostBody = ({ post }) => {
           }
         }}
       />
-    </div>
+    </Wrapper>
   );
 };
 
 export default PostBody;
+
+const Wrapper = styled.div`
+  margin: auto;
+  max-width: 720px;
+  padding-left: 20px;
+  padding-right: 20px;
+`;
+
+const DateFormat = styled.p`
+  font-weight: 700;
+`;
