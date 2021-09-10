@@ -31,7 +31,6 @@ const MenuButton = () => {
     }
   };
 
-  console.log("Menu state", state);
   return (
     <>
       <MenuBtn ref={menu} onClick={handleMenuClick}>

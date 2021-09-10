@@ -1,7 +1,7 @@
 import React from "react";
 
 const Site = ({ site }) => {
-  console.log(site);
+  console.log("Site", site);
   return (
     <div>
       <h1>This is site</h1>
