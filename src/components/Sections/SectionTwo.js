@@ -27,7 +27,7 @@ const dataArtist = [
   },
 ];
 
-const SectionTwo = ({ scrollY }) => {
+const SectionTwo = ({ scrollY, data }) => {
   return (
     <Section>
       <Wrapper>
