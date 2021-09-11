@@ -29,7 +29,7 @@ const Menu = ({ state }) => {
       // set menu to display grid
       gsap.to(menuWrapper.current, {
         duration: 0,
-        css: { display: grid },
+        css: { display: "grid" },
       });
       // allow menu to have height of 100%
       gsap.to(menuWrapper.current, {});
