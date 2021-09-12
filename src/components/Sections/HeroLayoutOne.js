@@ -5,7 +5,6 @@ import { StaticImage } from "gatsby-plugin-image";
 import batikImage1 from "../../images/batik1.webp";
 
 const HeroLayoutOne = ({ scrollY, data }) => {
-  const logo = useRef(null);
   const button = useRef(null);
   const bushLeft = useRef(null);
   const bushRight = useRef(null);
@@ -18,7 +17,6 @@ const HeroLayoutOne = ({ scrollY, data }) => {
   const line2 = useRef(null);
 
   useEffect(() => {
-    lineUp(logo.current, line1.current, line2.current, button.current);
     gsapTo(bird1.current, 500, 2);
     gsapTo(bird2.current, -300, 1.6);
     gsapTo(bird3.current, 140, 1.8);
@@ -81,7 +79,6 @@ const HeroLayoutOne = ({ scrollY, data }) => {
         </Bird3>
 
         <MiddleContentGroup>
-          <Logo ref={logo} />
           <MaskLine>
             <TitleLine ref={line1}>Majlis Seni Sarawak</TitleLine>
           </MaskLine>
@@ -93,7 +90,7 @@ const HeroLayoutOne = ({ scrollY, data }) => {
               </p>
             </DescriptionLine>
           </MaskLine>
-          <LoginButton ref={button}>Login</LoginButton>
+          {/* <LoginButton ref={button}>Login</LoginButton> */}
         </MiddleContentGroup>
         <MovingBatik1
           style={{
@@ -190,7 +187,7 @@ const MiddleContentGroup = styled.div`
   display: grid;
   gap: 50px;
   justify-items: center;
-  margin: auto;
+  margin: 100px auto;
   max-width: 700px;
 `;
 const Logo = styled.div`
@@ -201,11 +198,13 @@ const Logo = styled.div`
 `;
 // Mask
 const MaskLine = styled.div`
+  height: 100%;
   overflow: hidden;
 `;
 
-const TitleLine = styled.div`
+const TitleLine = styled.h1`
   font-size: 64px;
+  margin: 0;
   text-align: center;
   color: #373737;
 
@@ -217,8 +216,8 @@ const TitleLine = styled.div`
   }
 `;
 const DescriptionLine = styled.div`
+  margin: 0;
   font-size: 16px;
-  font-family: Inter;
   font-weight: 400;
   line-height: 150%;
   text-align: center;

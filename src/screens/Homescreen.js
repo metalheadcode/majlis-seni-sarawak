@@ -3,7 +3,6 @@ import styled from "styled-components";
 import MorePost from "../components/Posts/MorePost";
 import HeroLayoutOne from "../components/Sections/HeroLayoutOne";
 import HeroLayoutTwo from "../components/Sections/HeroLayoutTwo";
-import SectionTwo from "../components/Sections/SectionTwo";
 
 const Homescreen = ({ data }) => {
   const [scrollY, setScrollY] = useState();
@@ -24,7 +23,6 @@ const Homescreen = ({ data }) => {
       <WrapperGlobal>
         <HeroLayoutOne scrollY={scrollY} data={data} />
         <MorePost morePosts={data.morePosts} title="More Posts" />;
-        <SectionTwo scrollY={scrollY} />
         <HeroLayoutTwo scrollY={scrollY} />
       </WrapperGlobal>
     </div>
@@ -34,6 +32,5 @@ const Homescreen = ({ data }) => {
 export default Homescreen;
 
 const WrapperGlobal = styled.div`
-  width: 100vw;
   overflow: hidden;
 `;
