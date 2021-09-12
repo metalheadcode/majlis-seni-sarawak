@@ -52,7 +52,7 @@ const MenuBtn = styled.button`
   color: #fff;
 
   position: fixed;
-  left: 30px;
+  left: 47.7vw;
   top: 30px;
 
   &:hover {

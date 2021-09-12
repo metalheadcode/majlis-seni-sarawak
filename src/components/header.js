@@ -11,10 +11,7 @@ const Header = () => (
 export default Header;
 
 const Navbar = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   background-color: transparent;
   z-index: 20;
 `;

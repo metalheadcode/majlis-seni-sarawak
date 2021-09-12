@@ -4,7 +4,6 @@ import gsap from "gsap";
 import { StaticImage } from "gatsby-plugin-image";
 
 const HeroLayoutTwo = ({ scrollY }) => {
-  const logo = useRef(null);
   const button = useRef(null);
   const dayakDancer = useRef(null);
   const malayDancer = useRef(null);
@@ -17,7 +16,6 @@ const HeroLayoutTwo = ({ scrollY }) => {
   const line2 = useRef(null);
 
   useEffect(() => {
-    lineUp(logo.current, line1.current, line2.current, button.current);
     gsapTo(bird1.current, 500, 2);
     gsapTo(bird2.current, -300, 1.6);
     gsapTo(bird3.current, 140, 1.8);
@@ -76,9 +74,8 @@ const HeroLayoutTwo = ({ scrollY }) => {
         </Bird3>
 
         <MiddleContentGroup>
-          <Logo ref={logo} />
           <MaskLine>
-            <TitleLine ref={line1}>Majlis Seni Sarawak</TitleLine>
+            <TitleLine ref={line1}>Tari Menari</TitleLine>
           </MaskLine>
           <MaskLine>
             <DescriptionLine ref={line2}>
@@ -88,7 +85,6 @@ const HeroLayoutTwo = ({ scrollY }) => {
               </p>
             </DescriptionLine>
           </MaskLine>
-          <LoginButton ref={button}>Login</LoginButton>
         </MiddleContentGroup>
       </Wrapper>
     </Section>
@@ -183,7 +179,8 @@ const MaskLine = styled.div`
   overflow: hidden;
 `;
 
-const TitleLine = styled.div`
+const TitleLine = styled.h1`
+  margin: 0;
   font-size: 64px;
   text-align: center;
   color: #373737;
